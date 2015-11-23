@@ -1,4 +1,4 @@
-package pl.lstypka.springSecurityDistributedSystem.config.repository;
+package pl.lstypka.springSecurityDistributedSystem.config.bo;
 
 import java.io.Serializable;
 import java.util.Map;

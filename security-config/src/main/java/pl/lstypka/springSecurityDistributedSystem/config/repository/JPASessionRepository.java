@@ -1,24 +1,21 @@
 package pl.lstypka.springSecurityDistributedSystem.config.repository;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.session.ExpiringSession;
 import org.springframework.session.MapSession;
 import org.springframework.session.SessionRepository;
 import org.springframework.util.SerializationUtils;
+import pl.lstypka.springSecurityDistributedSystem.config.bo.SessionAttributes;
 
 import javax.transaction.Transactional;
-import java.io.*;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-public class JPASessionRepository implements SessionRepository<ExpiringSession> {
+public class JpaSessionRepository implements SessionRepository<ExpiringSession> {
 
     private SpringSessionRepository springSessionRepository;
 
-    public JPASessionRepository(SpringSessionRepository springSessionRepository) {
+    public JpaSessionRepository(SpringSessionRepository springSessionRepository) {
         this.springSessionRepository = springSessionRepository;
     }
 
@@ -70,11 +67,8 @@ public class JPASessionRepository implements SessionRepository<ExpiringSession> 
         return saved;
     }
 
-
     @Override
     public void delete(String id) {
         springSessionRepository.delete(id);
     }
-
-
 }

@@ -20,7 +20,7 @@ import pl.lstypka.springSecurityDistributedSystem.config.filter.CustomUsernamePa
 import pl.lstypka.springSecurityDistributedSystem.config.handler.AuthenticationFailureHandler;
 import pl.lstypka.springSecurityDistributedSystem.config.handler.AuthenticationSuccessHandler;
 import pl.lstypka.springSecurityDistributedSystem.config.handler.RestAuthenticationEntryPoint;
-import pl.lstypka.springSecurityDistributedSystem.config.repository.JPASessionRepository;
+import pl.lstypka.springSecurityDistributedSystem.config.repository.JpaSessionRepository;
 import pl.lstypka.springSecurityDistributedSystem.config.repository.SessionEntity;
 import pl.lstypka.springSecurityDistributedSystem.config.repository.SpringSessionRepository;
 import pl.lstypka.springSecurityDistributedSystem.config.service.AuthService;
@@ -78,7 +78,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public SessionRepository<ExpiringSession> sessionRepository() {
-        return new JPASessionRepository(springSessionRepository);
+        return new JpaSessionRepository(springSessionRepository);
     }
 
 
